@@ -43,5 +43,4 @@ function addCompetitor(){
     valid = false;
     $('#AC').attr("class", $('#AC').attr("class") + " error");
   }
-  }
 }
