@@ -27,8 +27,8 @@
 
 .titlebar{
   background: rgb(0, 204, 102);
-  position: absolute;
-  top: 0px;
+  margin-top:0px;
+  padding-top:10px;
   width: 100%;
   text-align: center;
   vertical-align: middle;
