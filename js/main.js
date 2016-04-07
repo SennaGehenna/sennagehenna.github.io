@@ -57,7 +57,8 @@ function renderList(){
   people.sort(function(a, b){return b.initiative - a.initiative});
   $('#people').empty()
   var muster = '<div class="row"><div class="col-xs-1" id="{{ID}}"></div><div class="col-xs-3"><span>{{INIT}}</span></div><div class="col-xs-3"><span>{{NAME}}</span></div><div class="col-xs-3"><span>{{AC}}</span></div></div>'
-  for (person in people){
+  for (var i = 0; i < people.length; ++i){
+    var person = people[i];
     var text = muster.replace("{{ID}}",person.id);
     text = text.replace("{{NAME}}",person.name);
     text = text.replace("{{INIT}}",person.initiative);
