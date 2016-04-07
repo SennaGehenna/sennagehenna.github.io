@@ -1,1 +1,26 @@
+.enjoy-css {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 106px;
+  cursor: pointer;
+  padding: 5px 18px;
+  border: none;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  font: normal normal bold 15px/normal "Battambang", Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  text-transform: uppercase;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: rgb(233, 58, 48);
+  -webkit-transition: background 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75);
+  -moz-transition: background 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75);
+  -o-transition: background 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75);
+  transition: background 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75);
+}
 
+.enjoy-css:hover {
+  background: rgb(229, 17, 17);
+}
