@@ -6,8 +6,8 @@ height: 50px;
   cursor: pointer;
   padding: 5px 18px;
   border: none;
-  -webkit-border-radius: 30px;
-  border-radius: 30px;
+  /*-webkit-border-radius: 30px;
+  border-radius: 30px;*/
   font: normal normal bold 50px/normal "Battambang", Helvetica, sans-serif;
   color: rgb(255, 255, 255);
   text-align: center;
