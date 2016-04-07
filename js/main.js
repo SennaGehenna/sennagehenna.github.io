@@ -3,9 +3,13 @@ var regexp = new RegExp("^\\/d20(\\+|\\-)\\d+$")
 var regexp2 = new RegExp("^\\-?\\\d+$");
 
 var _count = 0;
+var activeCompetitor = 0;
 
 function nextCompetitor(){
-
+  $('.active').removeClass("active");
+  $('#'+people[activeCompetitor++].id).addClass("active")
+  if(activeCompetitor === people.length)
+    activeCompetitor = 0;
 }
 
 function newCompetitor(){
@@ -56,7 +60,7 @@ function addCompetitor(){
 function renderList(){
   people.sort(function(a, b){return b.initiative - a.initiative});
   $('#people').empty()
-  var muster = '<div class="row" id="{{ID}}"><div class="col-xs-1"></div><div class="col-xs-3"><span>{{INIT}}</span></div><div class="col-xs-3"><span>{{NAME}}</span></div><div class="col-xs-3"><span>{{AC}}</span></div></div>'
+  var pattern = '<div class="row" id="{{ID}}"><div class="col-xs-1"></div><div class="col-xs-3"><span>{{INIT}}</span></div><div class="col-xs-3"><span>{{NAME}}</span></div><div class="col-xs-3"><span>{{AC}}</span></div></div>'
   for (var i = 0; i < people.length; ++i){
     var person = people[i];
     var text = muster.replace("{{ID}}",person.id);
