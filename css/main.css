@@ -19,7 +19,6 @@
   -moz-transition: background 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75);
   -o-transition: background 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75);
   transition: background 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75);
-  margin-top: 50px;
 }
 
 .enjoy-css:hover {
@@ -32,4 +31,5 @@
   top: 0px;
   width: 100%;
   text-align: center;
+  vertical-align: middle;
 }
