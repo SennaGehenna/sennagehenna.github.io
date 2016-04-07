@@ -15,6 +15,7 @@ function nextCompetitor(){
 function newCompetitor(){
   $('#collapseExample').collapse('show');
   $('#list').collapse('hide');
+  goToByScroll("collapseExample")
 }
 
 function hideCompetitorWindow(){
@@ -69,4 +70,13 @@ function renderList(){
     text = text.replace("{{AC}}",person.ac);
     $('#people').append(text);
   }
+}
+
+function goToByScroll(id){
+      // Reove "link" from the ID
+    id = id.replace("link", "");
+      // Scroll
+    $('html,body').animate({
+        scrollTop: $("#"+id).offset().top},
+        'slow');
 }
