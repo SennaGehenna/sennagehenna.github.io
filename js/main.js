@@ -37,6 +37,7 @@ function addCompetitor(){
     person.id = _count++;
     person.initiative = mod;
     person.name = $('#Name').val();
+    person.ac = $('#AC').val();
     hideCompetitorWindow();
   }
   else{
