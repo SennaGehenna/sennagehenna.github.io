@@ -1,7 +1,7 @@
-function next(){
+function nextCompetitor(){
 
 }
 
-function new(){
+function newCompetitor(){
 
 }
