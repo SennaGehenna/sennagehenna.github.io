@@ -16,6 +16,7 @@ function newCompetitor(){
 function hideCompetitorWindow(){
   $('#collapseExample').collapse('hide');
   $('#list').collapse('show');
+  $('#AC, #Initiative, #Name').val("")
 }
 
 
