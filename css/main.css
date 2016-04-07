@@ -36,3 +36,7 @@
 .error{
   border: 1px solid red;
 }
+
+#formbtn{
+  margin-right: 35%;
+}
