@@ -73,7 +73,7 @@ function addCompetitor(){
     renderList();
     $('[id="'+activeCompetitor+'"]').addClass("active")
     $('#compButton').show()
-    if(activeCompetitor == -1)
+    if(activeCompetitor == -1 && combatInitiated)
       activeCompetitor = 0;
   }
 }
