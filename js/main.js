@@ -60,6 +60,7 @@ function addCompetitor(){
     people.push(person);
     renderList();
     $('#compButton').show()
+    activeCompetitor = 0;
   }
 }
 
