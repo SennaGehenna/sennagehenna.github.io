@@ -62,7 +62,7 @@ function addCompetitor(){
 function renderList(){
   people.sort(function(a, b){return b.initiative - a.initiative});
   $('#people').empty()
-  var pattern = '<div class="row" id="{{ID}}"><div class="col-xs-1"></div><div class="col-xs-3"><span>{{INIT}}</span></div><div class="col-xs-3"><span>{{NAME}}</span></div><div class="col-xs-3"><span>{{AC}}</span></div></div>'
+  var pattern = '<div class="row" id="{{ID}}"><div class="col-xs-1"></div><div class="col-xs-3"><span>{{INIT}}</span></div><div class="col-xs-3"><span>{{NAME}}</span></div><div class="col-xs-3"><span>{{AC}}</span></div><div class="col-xs-1"><a href="#"><span class="icon-magic-wand"></span></a></div></div>'
   for (var i = 0; i < people.length; ++i){
     var person = people[i];
     var text = pattern.replace("{{ID}}",person.id);
