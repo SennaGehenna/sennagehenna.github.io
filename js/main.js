@@ -14,8 +14,14 @@ function nextCompetitor(){
   $('.active').removeClass("active");
   
   oldId = activeCompetitor;
-  var activeId = people[activeCompetitor++].id;
+  if(spells[oldId] !== undefined){
+    spells[oldId].duration = spells[oldId].duration - 1;
+    if(spells[oldId].duration === 0)
+      removeSpell(oldId);
+  }
   
+  var activeId = people[activeCompetitor++].id;
+  renderList();
   $('[id="'+activeId+'"]').addClass("active")
   if(activeCompetitor === people.length)
     activeCompetitor = 0;
