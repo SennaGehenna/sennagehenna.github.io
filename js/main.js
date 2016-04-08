@@ -9,7 +9,9 @@ var activeCompetitor = -1;
 
 function nextCompetitor(){
   $('.active').removeClass("active");
-  $('[id="'+people[activeCompetitor++].id+'"]').addClass("active")
+  var activeId = people[activeCompetitor++].id;
+  
+  $('[id="'+activeId+'"]').addClass("active")
   if(activeCompetitor === people.length)
     activeCompetitor = 0;
 }
@@ -65,7 +67,7 @@ function renderList(){
   people.sort(function(a, b){return b.initiative - a.initiative});
   $('#people').empty()
   var pattern = '<div class="row" id="{{ID}}"><div class="col-xs-1"></div><div class="col-xs-3"><span>{{INIT}}</span></div><div class="col-xs-3"><span>{{NAME}}</span></div><div class="col-xs-3"><span>{{AC}}</span></div><a href="#" onclick="newSpell({{ID}})"><div class="col-xs-1"><span class="icon-magic-wand"></span></div></a></div>'
-  var pattern_spell = '<div class="row spell" id="{{ID}}"><div class="col-xs-1"></div><div class="col-xs-3"><span>{{INIT}}</span></div><div class="col-xs-3"><span>{{NAME}}</span></div><div class="col-xs-3"><span>{{DURATION}} turn{{MORETHANONE}}</span></div><a href="#" onclick="removeDiv({{ID}})"><div class="col-xs-1"><i class="fa fa-ban"></i></div></a></div>';
+  var pattern_spell = '<div class="row spell" id="{{ID}}"><div class="col-xs-1"></div><div class="col-xs-3"><span>{{INIT}}</span></div><div class="col-xs-3"><span>{{NAME}}</span></div><div class="col-xs-3"><span>{{DURATION}} turn{{MORETHANONE}}</span></div><a href="#" onclick="removeSpell({{ID}})"><div class="col-xs-1"><i class="fa fa-ban"></i></div></a></div>';
   for (var i = 0; i < people.length; ++i){
     var person = people[i];
     var text = pattern.replace(/\{\{ID\}\}/g,person.id);
@@ -125,4 +127,9 @@ function addSpell(){
       renderList();
       cancelSpell();
     }
+}
+
+function removeSpell(id){
+  $('.spell[id="'+id+'"]').remove();
+  delete spells[id];
 }
