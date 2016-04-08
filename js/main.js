@@ -13,7 +13,7 @@ var oldId = -1;
 function nextCompetitor(){
   $('.active').removeClass("active");
   
-  var oldId = activeCompetitor;
+  oldId = activeCompetitor;
   var activeId = people[activeCompetitor++].id;
   
   $('[id="'+activeId+'"]').addClass("active")
