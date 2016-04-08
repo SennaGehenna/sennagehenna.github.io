@@ -103,6 +103,7 @@ function goToByScroll(id){
 }
 
 function newSpell(id){
+  $('#Castername').text(people[id].name);
   $('#collapse2').collapse('show');
   $('#list').collapse('hide');
   caster_id = id;
