@@ -1,5 +1,6 @@
 var people = [];
 var spells = {};
+var caster_id = -1;
 var regexp = new RegExp("^\\/d20(\\+|\\-)\\d+$")
 var regexp2 = new RegExp("^\\-?\\\d+$");
 
@@ -84,9 +85,10 @@ function goToByScroll(id){
         'slow');
 }
 
-function newSpell(){
+function newSpell(id){
   $('#collapse2').collapse('show');
   $('#list').collapse('hide');
+  caster_id = id;
   goToByScroll("collapse2")
 }
 
@@ -97,5 +99,10 @@ function cancelSpell(){
 }
 
 function addSpell(){
-
+    if($('#Spellname').val().trim.length !== 0){
+      var spell = {};
+      spell.name = $('#Spellname').val();
+      spell.duration = parseInt($('#Duration').find(":selected").attr("value"));
+      spells[id] = spell;
+    }
 }
