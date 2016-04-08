@@ -8,6 +8,7 @@ var combatInitiated = false;
 
 var _count = 0;
 var activeCompetitor = -1;
+var oldId = -1;
 
 function nextCompetitor(){
   $('.active').removeClass("active");
@@ -17,7 +18,7 @@ function nextCompetitor(){
   $('[id="'+activeId+'"]').addClass("active")
   if(activeCompetitor === people.length)
     activeCompetitor = 0;
-  var oldId = people[activeCompetitor].id;
+  oldId = people[activeCompetitor].id;
 }
 
 function newCompetitor(){
