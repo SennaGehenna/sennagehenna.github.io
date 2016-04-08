@@ -19,7 +19,7 @@ function nextCompetitor(){
   oldId = activeCompetitor;
   if(spells[oldId] !== undefined){
     spells[oldId].duration = spells[oldId].duration - 1;
-    if(spells[oldId].duration === 0)
+    if(spells[oldId].duration === -1)
       removeSpell(oldId);
   }
   
@@ -99,7 +99,10 @@ function renderList(){
       var text_spell = pattern_spell.replace(/\{\{ID\}\}/g,person.id);
       text_spell = text_spell.replace(/\{\{INIT\}\}/g,person.initiative);
       text_spell = text_spell.replace(/\{\{NAME\}\}/g,spells[person.id].name);
-      text_spell = text_spell.replace(/\{\{DURATION\}\}/g,spells[person.id].duration);
+      if(spells[person.id].duration >= 1)
+        text_spell = text_spell.replace(/\{\{DURATION\}\}/g,spells[person.id].duration);
+      else
+        text_spell = text_spell.replace(/\{\{DURATION\}\}/g,"Last");
       if(spells[person.id].duration > 1)
         text_spell = text_spell.replace(/\{\{MORETHANONE\}\}/g,"s");
       else
