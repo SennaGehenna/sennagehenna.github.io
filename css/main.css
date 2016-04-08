@@ -60,3 +60,8 @@
 a > .col-xs-1{
   width: 30px;
 }
+
+span.fa.fa-close{
+  display:none;
+
+}
