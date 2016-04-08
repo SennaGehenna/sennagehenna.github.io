@@ -70,6 +70,7 @@ function renderList(){
     text = text.replace("{{NAME}}",person.name);
     text = text.replace("{{INIT}}",person.initiative);
     text = text.replace("{{AC}}",person.ac);
+    text = text.replace("{{ID}}",person.id);
     $('#people').append(text);
   }
 }
