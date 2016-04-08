@@ -139,7 +139,7 @@ function addSpell(){
       spell.duration = parseInt($('#Duration').find(":selected").attr("value"));
       spells[caster_id] = spell;
       renderList();
-      if($('[id="'+caster_id+'"]').hasClass("active")))
+      if( $('[id="'+caster_id+'"]').hasClass("active") )
         $('[id="'+caster_id+'"]').addClass("active");
       cancelSpell();
     }
