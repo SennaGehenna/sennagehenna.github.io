@@ -1,4 +1,5 @@
 var people = [];
+var spells = {};
 var regexp = new RegExp("^\\/d20(\\+|\\-)\\d+$")
 var regexp2 = new RegExp("^\\-?\\\d+$");
 
@@ -62,7 +63,7 @@ function addCompetitor(){
 function renderList(){
   people.sort(function(a, b){return b.initiative - a.initiative});
   $('#people').empty()
-  var pattern = '<div class="row" id="{{ID}}"><div class="col-xs-1"></div><div class="col-xs-3"><span>{{INIT}}</span></div><div class="col-xs-3"><span>{{NAME}}</span></div><div class="col-xs-3"><span>{{AC}}</span></div><div class="col-xs-1"><a href="#"><span class="icon-magic-wand"></span></a></div></div>'
+  var pattern = '<div class="row" id="{{ID}}"><div class="col-xs-1"></div><div class="col-xs-3"><span>{{INIT}}</span></div><div class="col-xs-3"><span>{{NAME}}</span></div><div class="col-xs-3"><span>{{AC}}</span></div><div class="col-xs-1"><a href="#" onclick="addSpell({{ID}})"><span class="icon-magic-wand"></span></a></div></div>'
   for (var i = 0; i < people.length; ++i){
     var person = people[i];
     var text = pattern.replace("{{ID}}",person.id);
@@ -80,4 +81,20 @@ function goToByScroll(id){
     $('html,body').animate({
         scrollTop: $("#"+id).offset().top},
         'slow');
+}
+
+function newSpell(){
+  $('#collapse2').collapse('show');
+  $('#list').collapse('hide');
+  goToByScroll("collapse2")
+}
+
+function cancelSpell(){
+  $('#collapse2').collapse('hide');
+  $('#list').collapse('show');
+  $('#Spellname').val("");
+}
+
+function addSpell(){
+
 }
