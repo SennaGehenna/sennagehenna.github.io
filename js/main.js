@@ -11,11 +11,13 @@ var activeCompetitor = -1;
 
 function nextCompetitor(){
   $('.active').removeClass("active");
+  
   var activeId = people[activeCompetitor++].id;
   
   $('[id="'+activeId+'"]').addClass("active")
   if(activeCompetitor === people.length)
     activeCompetitor = 0;
+  var oldId = people[activeCompetitor].id;
 }
 
 function newCompetitor(){
