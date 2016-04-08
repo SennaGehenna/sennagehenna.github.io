@@ -107,8 +107,8 @@ function renderList(){
       $('#people').append(text_spell);
     }
   }
-  
-  $('[id="'+people[oldId].id+'"]').addClass("active")
+  if(oldId !== -1)
+    $('[id="'+people[oldId].id+'"]').addClass("active")
 }
 
 function goToByScroll(id){
