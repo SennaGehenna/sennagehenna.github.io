@@ -96,6 +96,44 @@
                 </div>
             </div>
         </div>
+        
+        <div class="collapse" id="collapse2">
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="form-group col-sm-5">
+                    <label for="Spellname" class="col-sm-3 control-label">Spellname</label>
+
+                    <div class=" col-sm-9">
+                        <input kl_virtual_keyboard_secure_input="on" class="form-control" id="Spellname" checktype="text" type="text" placeholder="Charm Person">
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="form-group col-sm-5">
+                    <label for="Duration" class="col-sm-3 control-label">Duration</label>
+
+                    <div class=" col-sm-9">
+                        <select class="form-control" id="Duration">
+                            <option>1 Turn</option>
+                            <option>1 Minute (10 turns)</option>
+                            <option>1 Hour (100 turns)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="formbtn" class="formbuttons pull-right">
+                    <a class="btn btn-default" id="btnOK" onclick="addSpell()">OK</a>
+                    <a class="btn btn-default" id="btnCancel" onclick="cancelSpell()" style="margin-right: 30px;">Cancel</a>
+                </div>
+            </div>
+        </div>
+
 
         <div id="list" class="collapse in">
             <div class="row text-center">
