@@ -71,8 +71,10 @@ function addCompetitor(){
   if(valid){
     people.push(person);
     renderList();
+    $('[id="'+activeCompetitor+'"]').addClass("active")
     $('#compButton').show()
-    activeCompetitor = 0;
+    if(activeCompetitor == -1)
+      activeCompetitor = 0;
   }
 }
 
