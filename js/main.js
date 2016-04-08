@@ -4,6 +4,8 @@ var caster_id = -1;
 var regexp = new RegExp("^\\/d20(\\+|\\-)\\d+$")
 var regexp2 = new RegExp("^\\-?\\\d+$");
 
+var combatInitiated = false;
+
 var _count = 0;
 var activeCompetitor = -1;
 
@@ -90,7 +92,7 @@ function renderList(){
       $('#people').append(text_spell);
     }
     
-    if(activeCompetitor == i){
+    if(activeCompetitor == i && combatInitiated){
       $('[id="'+i+'"]').addClass("active");
     }
   }
