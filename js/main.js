@@ -68,22 +68,22 @@ function renderList(){
   var pattern_spell = '<div class="row spell" id="{{ID}}"><div class="col-xs-1"></div><div class="col-xs-3"><span>{{INIT}}</span></div><div class="col-xs-3"><span>{{NAME}}</span></div><div class="col-xs-3"><span>{{DURATION}} turn{{MORETHANONE}}</span></div><a href="#" onclick="removeDiv({{ID}})"><div class="col-xs-1"><i class="fa fa-ban"></i></div></a></div>';
   for (var i = 0; i < people.length; ++i){
     var person = people[i];
-    var text = pattern.replace("{{ID}}",person.id);
-    text = text.replace("{{NAME}}",person.name);
-    text = text.replace("{{INIT}}",person.initiative);
-    text = text.replace("{{AC}}",person.ac);
-    text = text.replace("{{ID}}",person.id);
+    var text = pattern.replace(/\{\{ID\}\}/g,person.id);
+    text = text.replace(/\{\{NAME\}\}/g,person.name);
+    text = text.replace(/\{\{INIT\}\}/g,person.initiative);
+    text = text.replace(/\{\{AC\}\}/g,person.ac);
+    text = text.replace(/\{\{ID\}\}/g,person.id);
     $('#people').append(text);
     
     if (spells[person.id] !== undefined){
-      var text_spell = pattern_spell.replace("{{ID}}",person.id);
-      text_spell = text_spell.replace("{{INIT}}",person.initiative);
-      text_spell = text_spell.replace("{{NAME}}",spells[person.id].name);
-      text_spell = text_spell.replace("{{DURATION}}",spells[person.id].duration);
+      var text_spell = pattern_spell.replace(/\{\{ID\}\}/g,person.id);
+      text_spell = text_spell.replace(/\{\{INIT\}\}/g,person.initiative);
+      text_spell = text_spell.replace(/\{\{NAME\}\}/g,spells[person.id].name);
+      text_spell = text_spell.replace(/\{\{DURATION\}\}/g,spells[person.id].duration);
       if(spells[person.id].duration > 1)
-        text_spell = text_spell.replace("{{MORETHANONE}}","s");
+        text_spell = text_spell.replace(/\{\{MORETHANONE\}\}/g,"s");
       else
-        text_spell = text_spell.replace("{{MORETHANONE}}","");
+        text_spell = text_spell.replace(/\{\{MORETHANONE\}\}/g,"");
       $('#people').append(text_spell);
     }
     
