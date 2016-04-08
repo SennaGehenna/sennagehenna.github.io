@@ -106,10 +106,6 @@ function renderList(){
         text_spell = text_spell.replace(/\{\{MORETHANONE\}\}/g,"");
       $('#people').append(text_spell);
     }
-    
-    if(activeCompetitor == i && combatInitiated){
-      $('[id="'+i+'"]').addClass("active");
-    }
   }
 }
 
