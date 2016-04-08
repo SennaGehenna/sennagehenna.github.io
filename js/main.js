@@ -55,6 +55,7 @@ function addCompetitor(){
   if(valid){
     people.push(person);
     renderList();
+    $('#compButton').show()
   }
 }
 
