@@ -86,6 +86,10 @@ function renderList(){
         text_spell = text_spell.replace("{{MORETHANONE}}","");
       $('#people').append(text_spell);
     }
+    
+    if(activeCompetitor == i){
+      $('[id="'+i+'"]').addClass("active");
+    }
   }
 }
 
