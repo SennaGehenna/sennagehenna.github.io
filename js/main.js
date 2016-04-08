@@ -112,10 +112,10 @@ function goToByScroll(id){
 }
 
 function newSpell(id){
+  caster_id = id;
   $('#Castername').text($.grep(people, function(e){ return e.id == caster_id; })[0].name);
   $('#collapse2').collapse('show');
   $('#list').collapse('hide');
-  caster_id = id;
   goToByScroll("collapse2")
 }
 
