@@ -5,7 +5,7 @@ var regexp = new RegExp("^\\/d20(\\+|\\-)\\d+$")
 var regexp2 = new RegExp("^\\-?\\\d+$");
 
 var _count = 0;
-var activeCompetitor = 0;
+var activeCompetitor = -1;
 
 function nextCompetitor(){
   $('.active').removeClass("active");
