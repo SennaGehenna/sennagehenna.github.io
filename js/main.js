@@ -13,12 +13,13 @@ var oldId = -1;
 function nextCompetitor(){
   $('.active').removeClass("active");
   
+  var oldId = activeCompetitor;
   var activeId = people[activeCompetitor++].id;
   
   $('[id="'+activeId+'"]').addClass("active")
   if(activeCompetitor === people.length)
     activeCompetitor = 0;
-  oldId = people[activeCompetitor].id;
+  
 }
 
 function newCompetitor(){
@@ -111,7 +112,7 @@ function goToByScroll(id){
 }
 
 function newSpell(id){
-  $('#Castername').text(people[id].name);
+  $('#Castername').text($.grep(people, function(e){ return e.id == caster_id; })[0].name);
   $('#collapse2').collapse('show');
   $('#list').collapse('hide');
   caster_id = id;
