@@ -47,6 +47,8 @@
   width: 100%;
 }
 
-.row{
-  margin-right:0px;
+@media screen and (max-width: 764px) {
+  .row{
+    margin-right:0px;
+  }
 }
