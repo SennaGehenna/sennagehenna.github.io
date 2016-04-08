@@ -75,7 +75,7 @@ function renderList(){
     text = text.replace("{{ID}}",person.id);
     $('#people').append(text);
     
-    if (spells[0] !== undefined){
+    if (spells[person.id] !== undefined){
       var text_spell = pattern_spell.replace("{{ID}}",person.id);
       text_spell = text_spell.replace("{{INIT}}",person.initiative);
       text_spell = text_spell.replace("{{NAME}}",spells[person.id].name);
@@ -117,6 +117,7 @@ function addSpell(){
       spell.name = $('#Spellname').val();
       spell.duration = parseInt($('#Duration').find(":selected").attr("value"));
       spells[caster_id] = spell;
+      renderList();
       cancelSpell();
     }
 }
