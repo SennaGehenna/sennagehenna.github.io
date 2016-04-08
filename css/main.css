@@ -34,6 +34,10 @@
   background: rgb(153, 255, 102);
 }
 
+.active.spell{
+  background: rgb(68, 204, 0);
+}
+
 .error{
   border: 1px solid red;
 }
