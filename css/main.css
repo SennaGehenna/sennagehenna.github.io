@@ -27,6 +27,7 @@
 
 .titlebar{
   background: rgb(0, 204, 102);
+  margin-right:15px;
 }
 
 .active{
