@@ -25,7 +25,7 @@ function nextCompetitor(){
   
   var activeId = people[activeCompetitor++].id;
   renderList();
-  $('[id="'+activeId+'"]').addClass("active")
+  //$('[id="'+activeId+'"]').addClass("active")
   if(activeCompetitor === people.length)
     activeCompetitor = 0;
   
