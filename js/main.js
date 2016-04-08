@@ -12,7 +12,10 @@ var oldId = -1;
 
 function nextCompetitor(){
   $('.active').removeClass("active");
-  
+  if(!combatInitiated){
+    combatInitiated = true;
+    activeCompetitor = 0;
+  }
   oldId = activeCompetitor;
   if(spells[oldId] !== undefined){
     spells[oldId].duration = spells[oldId].duration - 1;
