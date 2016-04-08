@@ -24,7 +24,7 @@ function nextCompetitor(){
   }
   
   var activeId = people[activeCompetitor++].id;
-  //renderList();
+  renderList();
   $('[id="'+activeId+'"]').addClass("active")
   if(activeCompetitor === people.length)
     activeCompetitor = 0;
@@ -107,6 +107,8 @@ function renderList(){
       $('#people').append(text_spell);
     }
   }
+  
+  $('[id="'+people[oldId].id+'"]').addClass("active")
 }
 
 function goToByScroll(id){
