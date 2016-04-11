@@ -159,3 +159,7 @@ function removeCompetitor(id){
   people.splice(people.indexOf(people.find(function(elem){ return elem.id == id;})), 1);
   $('[id="'+id+'"]').remove();
 }
+
+$(function() {
+  $('[data-toggle="tooltip"]').tooltip()
+});
