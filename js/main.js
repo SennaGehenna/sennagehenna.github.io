@@ -1,7 +1,7 @@
 var people = [];
 var spells = {};
 var caster_id = -1;
-var regexp = new RegExp("^\\/d20(\\+|\\-)\\d+$")
+var regexp = new RegExp(/(\+|\-)\d+/)
 var regexp2 = new RegExp("^\\-?\\\d+$");
 
 var combatInitiated = false;
