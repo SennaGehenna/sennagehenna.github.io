@@ -74,7 +74,6 @@ function addCompetitor(){
   if(valid){
     people.push(person);
     renderList();
-    $('[id="'+activeCompetitor+'"]').addClass("active")
     $('#compButton').show()
     if(activeCompetitor == -1 && combatInitiated)
       activeCompetitor = 0;
