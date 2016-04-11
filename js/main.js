@@ -51,7 +51,7 @@ function addCompetitor(){
   var init = $('#Initiative').val();
   var mod = -1;
   if(regexp.test(init)){
-    mod = parseInt(init)+Math.floor((Math.random() * 20) + 1;
+    mod = parseInt(init)+Math.floor((Math.random() * 20) + 1);
   }
   else if (regexp2.test(init)){
     mod = parseInt(init);
