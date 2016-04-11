@@ -157,6 +157,6 @@ function removeSpell(id){
 
 function removeCompetitor(id){
   removeSpell(id);
-  people.splice(people.indexOf(people.find(function(elem){ return elem.id == 1;})), 1);
+  people.splice(people.indexOf(people.find(function(elem){ return elem.id == id;})), 1);
   $('[id="'+id+'"]').remove();
 }
