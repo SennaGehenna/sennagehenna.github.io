@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Initiative Tracker</title>
+    <title>Tormunds Shizz</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <!-- Latest compiled and minified CSS -->
@@ -12,16 +12,10 @@
     <link rel="stylesheet" type="text/css" href="/css/icomoon.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <script src="/js/main.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-    <style>
-        .form-group {
-            margin-left: -5px;
-            margin-right: 0px;
-        }
-    </style>
+    
 </head>
 
 <body>
@@ -29,142 +23,20 @@
         <div class="titlebar row text-center">
             <div class="row">
                 <div class="col-xs-4"></div>
-                <h2 class="col-xs-4">Initiative Tracker</h2>
+                <h2 class="col-xs-4">Main Page</h2>
                 <div class="col-xs-4"></div>
-            </div>
-            <div class="text-center row">
-                <div class="col-sm-5"></div>
-                <a role="button" class="col-sm-12" onclick="newCompetitor()">
-                    <div class="enjoy-css">
-                        <span class="fa fa-plus"></span>
-                    </div>
-                </a>
-            </div>
-            <div class="text-center row" id="compButton" style="display:none;">
-                <div class="col-sm-5"></div>
-                <a href="#" class="col-sm-12" onclick="nextCompetitor()">
-                    <div class="enjoy-css">
-                        <span class="fa fa-chevron-right"></span>
-                    </div>
-                </a>
-                <div class="col-xs-1"></div>
             </div>
         </div>
         <!-- /.header -->
 
-        <hr>
-
-        <div class="collapse" id="collapseExample">
-            <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="form-group col-sm-5">
-                    <label for="Initiative" class="col-sm-3 control-label">Initiative</label>
-
-                    <div class=" col-sm-9">
-                        <input kl_virtual_keyboard_secure_input="on" class="form-control" id="Initiative" checktype="text" type="text" placeholder="20" data-placement="top" title="" data-toggle="tooltip" data-original-title="You can use either constant values by simply entering the number or you can randomly generate one by inserting your DEX-bonus (e.g.: -2; +0; +1)">
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="form-group col-sm-5">
-                    <label for="Name" class="col-sm-3 control-label">Name</label>
-
-                    <div class=" col-sm-9">
-                        <input kl_virtual_keyboard_secure_input="on" class="form-control" id="Name" checktype="text" type="text" placeholder="Tarrasque">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="form-group col-sm-5">
-                    <label for="AC" class="col-sm-3 control-label">AC</label>
-
-                    <div class=" col-sm-9">
-                        <input kl_virtual_keyboard_secure_input="on" class="form-control" id="AC" checktype="text" type="text" placeholder="25">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div id="formbtn" class="formbuttons pull-right">
-                    <a class="btn btn-default" id="btnOK" onclick="addCompetitor()">OK</a>
-                    <a class="btn btn-default" id="btnCancel" onclick="hideCompetitorWindow()" style="margin-right: 30px;">Cancel</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="collapse" id="collapse2">
-            
-            <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="form-group col-sm-5 text-center">
-                    <h3><span id="Castername">Viari</span></h3>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="form-group col-sm-5">
-                    <label for="Spellname" class="col-sm-3 control-label">Spellname</label>
-
-                    <div class=" col-sm-9">
-                        <input kl_virtual_keyboard_secure_input="on" class="form-control" id="Spellname" checktype="text" type="text" placeholder="Charm Person">
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="form-group col-sm-5">
-                    <label for="Duration" class="col-sm-3 control-label">Duration</label>
-
-                    <div class=" col-sm-9">
-                        <select class="form-control" id="Duration">
-                            <option value="1">1 Turn</option>
-                            <option selected="" value="10">1 Minute (10 turns)</option>
-                            <option value="100">10 Minutes (100 turns)</option>
-                            <option value="600">1 Hour (600 turns)</option>
-                            <option value="4800">8 Hours (4800 turns)</option>
-                            <option value="19200">24 Hours (19.200 turns)</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div id="formbtn" class="formbuttons pull-right">
-                    <a class="btn btn-default" id="btnOK" onclick="addSpell()">OK</a>
-                    <a class="btn btn-default" id="btnCancel" onclick="cancelSpell()" style="margin-right: 30px;">Cancel</a>
-                </div>
-            </div>
-        </div>
-
-
-        <div id="list" class="collapse in">
-            <div class="row text-center">
-                <div class="col-xs-1"></div>
-                <div class="col-xs-3">
-                    <span>Initiative</span>
-                </div>
-                <div class="col-xs-3">
-                    <span>Name</span>
-                </div>
-                <div class="col-xs-3">
-                    <span>AC/Duration left</span>
-                </div>
-            </div>
-            <hr>
-
-            <div class="content text-center" id="people">
-            </div>
-        </div>
     </div>
+    
+    <ul>
+        <li>
+            <a href="/pages/initracker.html">Initiative Tracker</a>
+        </li>
+    </ul>
+    
 </body>
 
 </html>
