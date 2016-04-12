@@ -70,11 +70,7 @@ span.fa.fa-close{
   font-size: 16pt;
 }
 
-.container{
+.container.main{
   background-color: #fff;
   height: 100%;
-}
-
-body{
-  background-color: #A9E3FF;
 }
