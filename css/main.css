@@ -1,19 +1,54 @@
-.titlebar {
-	background-color: indianred;
-	color: #ffF;
+.enjoy-css {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 50px;
+  cursor: pointer;
+  padding: 5px 18px;
+  border: none;
+  /*-webkit-border-radius: 30px;
+  border-radius: 30px;*/
+  font: normal normal bold 50px/normal "Battambang", Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  text-transform: uppercase;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: rgb(76, 230, 0);
+  -webkit-transition: background 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75);
+  -moz-transition: background 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75);
+  -o-transition: background 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75);
+  transition: background 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75);
 }
 
-.titlebar a{
-	background-color: #6ef76e;
-	height: 50px;
-	text-decoration:none;
-	color: #fff;
-	font-size: 20pt;
-	padding-top: 12px;
+.enjoy-css:hover {
+  background: rgb(68, 204, 0);
 }
 
-a{
-	text-decoration:none;
+.titlebar{
+  color: #fff;
+  background: indianred;
+}
+
+.active{
+  background: rgb(153, 255, 102);
+}
+
+.active.spell{
+  background: rgb(68, 204, 0);
+}
+
+.error{
+  border: 1px solid red;
+}
+
+#formbtn{
+  margin-right: 35%;
+}
+
+.container-full {
+  margin: 0 auto;
+  width: 100%;
 }
 
 @media screen and (max-width: 764px) {
@@ -22,3 +57,20 @@ a{
   }
 }
 
+a > .col-xs-1{
+  width: 30px;
+}
+
+span.fa.fa-close{
+/*  display:none;*/
+
+}
+
+.listElem{
+  font-size: 16pt;
+}
+
+.container.main{
+  background-color: #fff;
+  height: 100%;
+}
