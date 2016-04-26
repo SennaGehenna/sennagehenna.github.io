@@ -25,6 +25,10 @@
   background: rgb(68, 204, 0);
 }
 
+a:hover{
+  text-decoration: none;
+}
+
 .titlebar{
   color: #fff;
   background: indianred;
@@ -84,3 +88,4 @@ span.fa.fa-close{
 .button .icon{
   color: white;
 }
+
