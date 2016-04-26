@@ -74,3 +74,13 @@ span.fa.fa-close{
   background-color: #fff;
   height: 100%;
 }
+
+.button{
+    background: #A94442;
+    padding-top: 5px;
+    padding-bottom: 7px;
+}
+
+.icon{
+  color: white;
+}
