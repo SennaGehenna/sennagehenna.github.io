@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- code copyright (c) 2009-2016 drow <drow@bin.sh>                     -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<head>
+  <meta charset="utf-8" />
+  <title>donjon; Tyrax Antechamber</title>
+
+  <link rel="shortcut icon" type="image/vnd.microsoft.icon"
+    href="data:image/vnd.microsoft.icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAHAADgBwAA4AcAAP5/AAD4HwAA+98AAPvfAAD73wAA+98AAPvfAAD73wAA+B8AAP5/AADgBwAA4AcAAOAHAAA=" />
+
+  <link rel="stylesheet" type="text/css" media="all"
+    href="data:text/css;base64,LyogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKi8KLyogY29tbW9uLmNzcwogKgogKiBjb3B5cmlnaHQgKGMpIDIwMDYtMjAxMyBkcm93IDxkcm93QGJpbi5zaD4KICogYWxsIHJpZ2h0cyByZXNlcnZlZC4KKi8KCi8qICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICovCi8qIGZvbnQtZmFtaWx5ICovCgpib2R5IHsgZm9udC1mYW1pbHk6ICdBc3VsJywgc2Fucy1zZXJpZjsgfQp0ZXh0YXJlYSB7IGZvbnQtZmFtaWx5OiAnQXN1bCcsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTogMTRweDsgfQoKLyogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKi8KLyogY29udGVudCAqLwoKaDEgeyB0ZXh0LWFsaWduOiBjZW50ZXI7IH0KdGFibGUgeyBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlOyB9CgouY2VudGVyIHsgdGV4dC1hbGlnbjogY2VudGVyOyB9CnRhYmxlLmNlbnRlciB7IG1hcmdpbjogMHB4IGF1dG87IH0KCm9wdGdyb3VwIHsgbWFyZ2luOiAxZXggMWVtOwogIGZvbnQtc3R5bGU6IG5vcm1hbDsgZm9udC13ZWlnaHQ6IG5vcm1hbDsgY29sb3I6ICM4MDgwODA7IH0Kb3B0Z3JvdXAgb3B0aW9uIHsgY29sb3I6ICMwMDAwMDA7IH0KCmRpdi5mb290bm90ZXMgeyBtYXJnaW4tdG9wOiA2ZXg7IHRleHQtYWxpZ246IGNlbnRlcjsgfQoKLyogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKi8K" />
+  <link rel="stylesheet" type="text/css" media="all"
+    href="data:application/binary;base64,QGZvbnQtZmFjZSB7CiAgZm9udC1mYW1pbHk6ICdBc3VsJzsKICBmb250LXN0eWxlOiBub3JtYWw7CiAgZm9udC13ZWlnaHQ6IDQwMDsKICBzcmM6IGxvY2FsKCdBc3VsJyksIGxvY2FsKCdBc3VsLVJlZ3VsYXInKSwgdXJsKGh0dHA6Ly9mb250cy5nc3RhdGljLmNvbS9zL2FzdWwvdjUvVkF6a0MyVEloUTJlNEtRTERLZjlSdy50dGYpIGZvcm1hdCgndHJ1ZXR5cGUnKTsKfQpAZm9udC1mYWNlIHsKICBmb250LWZhbWlseTogJ0FzdWwnOwogIGZvbnQtc3R5bGU6IG5vcm1hbDsKICBmb250LXdlaWdodDogNzAwOwogIHNyYzogbG9jYWwoJ0FzdWwgQm9sZCcpLCBsb2NhbCgnQXN1bC1Cb2xkJyksIHVybChodHRwOi8vZm9udHMuZ3N0YXRpYy5jb20vcy9hc3VsL3Y1L1BJUGJHOUtHb2R6NVVNX1ZnbnFNeHcudHRmKSBmb3JtYXQoJ3RydWV0eXBlJyk7Cn0K" />
+  <link rel="stylesheet" type="text/css" media="all"
+    href="data:text/css;base64,LyogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKi8KLyogc3RhdHMuY3NzCiAqCiAqIGNvcHlyaWdodCAoYykgMjAwNi0yMDExIGRyb3cgPGRyb3dAYmluLnNoPgogKiBhbGwgcmlnaHRzIHJlc2VydmVkLgoqLwoKLyogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKi8KLyogc3RhdCBibG9jayAqLwoKdGFibGUuc3RhdHMgeyBtYXJnaW46IDJleCBhdXRvOwogIGJvcmRlcjogbm9uZTsgYm9yZGVyLXRvcDogMXB4IHNvbGlkOyBib3JkZXItY29sb3I6ICNjY2NjY2M7IH0KdGFibGUuc3RhdHMgdGFibGUgeyB3aWR0aDogMTAwJTsgbWFyZ2luOiA0cHg7CiAgYm9yZGVyOiBub25lOyBib3JkZXItdG9wOiAxcHggc29saWQ7IGJvcmRlci1jb2xvcjogI2NjY2NjYzsgfQp0YWJsZS5zdGF0cyB0cjpob3ZlciB0ZCB7IGJhY2tncm91bmQ6ICNkZWRlZGU7IH0KdGFibGUuc3RhdHMgdHIuZW1wdHk6aG92ZXIgdGQgeyBiYWNrZ3JvdW5kOiBub25lOyB9CnRhYmxlLnN0YXRzIHRyOmhvdmVyIG9sIGxpOmhvdmVyIHsgYmFja2dyb3VuZDogI2ZmZmZmZjsgfQp0YWJsZS5zdGF0cyB0cjpob3ZlciB0YWJsZSB0cjpob3ZlciB0ZCB7IGJhY2tncm91bmQ6ICNmZmZmZmY7IH0KdGFibGUuc3RhdHMgdHI6aG92ZXIgdGFibGUgdHIuZW1wdHk6aG92ZXIgdGQgeyBiYWNrZ3JvdW5kOiBub25lOyB9CnRhYmxlLnN0YXRzIHRyOmhvdmVyIHRhYmxlIHRyOmhvdmVyIG9sIGxpOmhvdmVyIHsgYmFja2dyb3VuZDogI2RlZGVkZTsgfQoKdGFibGUuc3RhdHMgdGggeyBwYWRkaW5nOiAxZXggMWVtOyBiYWNrZ3JvdW5kOiAjMDAwMDAwOyBjb2xvcjogI2ZmZmZmZjsgfQp0YWJsZS5zdGF0cyB0ZCB7IHBhZGRpbmc6IDRweCAxZW07CiAgYm9yZGVyOiBub25lOyBib3JkZXItYm90dG9tOiAxcHggc29saWQ7IGJvcmRlci1jb2xvcjogI2NjY2NjYzsKICB2ZXJ0aWNhbC1hbGlnbjogdG9wOyB9CnRhYmxlLnN0YXRzIHRkLmljb24gaW1nIHsgYm9yZGVyOiAxcHggc29saWQ7IGJvcmRlci1jb2xvcjogI2NjY2NjYzsgfQp0YWJsZS5zdGF0cyB0ZC5zZWN0aW9uIHsgd2lkdGg6IDhlbTsgcGFkZGluZy10b3A6IDhweDsKICB0ZXh0LWFsaWduOiByaWdodDsgd2hpdGUtc3BhY2U6IG5vd3JhcDsKICBmb250LXNpemU6IGxhcmdlcjsgZm9udC13ZWlnaHQ6IGJvbGQ7IH0KdGFibGUuc3RhdHMgdGQuZGV0YWlsIHsgd2lkdGg6IDhlbTsKICB0ZXh0LWFsaWduOiByaWdodDsgd2hpdGUtc3BhY2U6IG5vd3JhcDsgZm9udC1zdHlsZTogaXRhbGljOyB9CnRhYmxlLnN0YXRzIHRkLmtleSB7IHdpZHRoOiA4ZW07CiAgdGV4dC1hbGlnbjogcmlnaHQ7IHdoaXRlLXNwYWNlOiBub3dyYXA7IGZvbnQtd2VpZ2h0OiBib2xkOyB9Cgp0YWJsZS5zdGF0cyB0ZC52YWx1ZSB7IHZlcnRpY2FsLWFsaWduOiBib3R0b207IH0KdGFibGUuc3RhdHMgdGQudmFsdWUgcCB7IG1hcmdpbjogMHB4OyBtYXJnaW4tdG9wOiAxZXg7IH0KdGFibGUuc3RhdHMgdGQudmFsdWUgcC5pY29uIHsgcGFkZGluZy1sZWZ0OiAyZW07IHRleHQtaW5kZW50OiAtMmVtOyB9CnRhYmxlLnN0YXRzIHRkLnZhbHVlIG9sIHsgbWFyZ2luOiAwcHggMHB4IDJleCAyZW07IHBhZGRpbmc6IDBweDsgfQp0YWJsZS5zdGF0cyB0ZC52YWx1ZSBvbCBsaSB7IG1hcmdpbjogMHB4OyBwYWRkaW5nOiAycHggMC41ZW07IH0KdGFibGUuc3RhdHMgdGQudmFsdWUgaHIgeyBtYXJnaW46IDFleCAwZW07CiAgYm9yZGVyOiBub25lOyBib3JkZXItdG9wOiAxcHggc29saWQ7IGJvcmRlci1jb2xvcjogI2NjY2NjYzsgfQoKQG1lZGlhIHByaW50IHsKICBhIHsgY29sb3I6IGJsYWNrOyB0ZXh0LWRlY29yYXRpb246IG5vbmU7IH0KfQoKLyogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKi8K" />
+  <link rel="stylesheet" type="text/css" media="all"
+    href="data:text/css;base64,LyogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKi8KLyogZHVuZ2Vvbi9zdHlsZS5jc3MKICoKICogY29weXJpZ2h0IChjKSAyMDA2LTIwMTQgZHJvdyA8ZHJvd0BiaW4uc2g+CiAqIGFsbCByaWdodHMgcmVzZXJ2ZWQuCiovCgovKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqLwovKiBkdW5nZW9uIG1hcCAqLwoKdGFibGUubWFwIHsgbWFyZ2luOiAyZXggYXV0bzsgYm9yZGVyOiBub25lOwogIGJvcmRlci1sZWZ0OiAxcHggc29saWQ7IGJvcmRlci10b3A6IDFweCBzb2xpZDsgYm9yZGVyLWNvbG9yOiAjMzMzMzMzOyB9CnRhYmxlLm1hcCB0ZC5jZWxsIHsgbWFyZ2luOiAwcHg7IHBhZGRpbmc6IDBweDsKICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZDsgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkOyBib3JkZXItY29sb3I6ICNjY2NjZmY7CiAgdGV4dC1hbGlnbjogY2VudGVyOyB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlOwogIGZvbnQtZmFtaWx5OiBIZWx2ZXRpY2EsIEdlbmV2YSwgc2Fucy1zZXJpZjsgZm9udC1zaXplOiA5cHg7IH0KdGFibGUubWFwIHRkLmJlZW4geyBiYWNrZ3JvdW5kOiAjZGVmZmRlOyB9CnRhYmxlLm1hcCB0ZC5jZWxsIGEgeyB0ZXh0LWRlY29yYXRpb246IG5vbmU7IH0KdGFibGUubWFwIHRkLmZpbGwgeyBib3JkZXItY29sb3I6ICMzMzMzMzM7IGJhY2tncm91bmQ6ICMwMDAwMDA7IH0KCnAubWFwIHsgdGV4dC1hbGlnbjogY2VudGVyOyB9CmltZyB7IGJvcmRlcjogbm9uZTsgfQpwLmxlZ2VuZCB7IHRleHQtYWxpZ246IGNlbnRlcjsgfQpwLmxlZ2VuZCBzcGFuIHsgbWFyZ2luOiAwcHggMC41ZW07IHdoaXRlLXNwYWNlOiBub3dyYXA7IH0KCi8qIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtIC0gLSAtICovCi8qIHZhcmlhbnRzICovCgpkaXYudmFyaWFudHMgeyBtYXJnaW46IDJleCAxMCU7IG1hcmdpbi10b3A6IDRleDsgYm9yZGVyOiAxcHggc29saWQ7CiAgYm9yZGVyLWNvbG9yOiAjOTk5OTk5OyBiYWNrZ3JvdW5kOiAjZGVkZWRlOyB0ZXh0LWFsaWduOiBjZW50ZXI7IH0KZGl2LnZhcmlhbnRzIGRpdiB7IG1hcmdpbjogMmV4IDBweDsgfQpkaXYudmFyaWFudHMgYiB7IG1hcmdpbjogMHB4IDAuNWVtOyB9CmRpdi52YXJpYW50cyBmb3JtIHsgZGlzcGxheTogaW5saW5lOyBtYXJnaW46IDBweCAwLjVlbTsgfQpkaXYudmFyaWFudHMgaW5wdXQgeyBtYXJnaW46IDBweCAwLjVlbTsgfQpkaXYudmFyaWFudHMgc2VsZWN0IHsgbWFyZ2luOiAwcHggMC41ZW07IH0KZGl2LndvcmtpbmcgeyB0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtc2l6ZTogMTUwJTsgfQoKLyogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKi8K" />
+
+  <style type="text/css" media="print">
+    img { max-width: 100%; }
+    div.variants { display: none; }
+  </style>
+
+  
+</head>
+<body>
+<h1>Tyrax Antechamber</h1>
+<h2 class="center">Level 1</h2>
+<p class="map"><img id="map_img" src="/../images/ZwergentempelMitDragonbornVillain.png" alt="" usemap="#dungeon" /></p>
+<div><map id="dungeon" name="dungeon">
+<area href="#1" alt="Complex, Empty" title="Complex, Empty" shape="rect" coords="672,224,728,280" />
+
+</map></div>
+
+<table class="stats standard">
+    <tr>
+        <td class="section">General</td>
+        <td>
+            <table class="section">
+                <tr>
+                    <td class="key">Dungeon History</td>
+                    <td class="value">Der Dungeon wurde durch einen Drachen mit Feuer und Klaue erschaffen.</td>
+                </tr>
+                <tr>
+                    <td class="key">Dungeon Walls</td>
+                    <td class="value">Verbrannter Stein (DC 23 to climb)</td>
+                </tr>
+                <tr>
+                    <td class="key">Dungeon Floor</td>
+                    <td class="value">Verbrannter Stein (DC 10 to charge or run)</td>
+                </tr>
+                <tr>
+                    <td class="key">Temperature</td>
+                    <td class="value">Kühl</td>
+                </tr>
+                <tr>
+                    <td class="key">Illumination</td>
+                    <td class="value">Durchschnitt (dunkel in den Korridoren, magisches Licht in den Räumen)</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="section">Wandering<br />Monsters</td>
+        <td>
+            <table class="section">
+                <tr>
+                    <td class="key">1</td>
+                    <td class="value">1 x Winged Kobold (mm 195, cr 1/4) 5x Kobold (mm195, cr 1/8), scouting from another part of the dungeon</td>
+                </tr>
+                <tr>
+                    <td class="key">2</td>
+                    <td class="value">2 x Giant Goat (mm 326, cr 1/2), running around</td>
+                </tr>
+                <tr>
+                    <td class="key">3</td>
+                    <td class="value">1 x Cockatrice/Basilisk (mm 42, cr 1/2), scouting from another part of the dungeon</td>
+                </tr>
+                <tr>
+                    <td class="key">4</td>
+                    <td class="value">2 x Giant Goat, 1x Giant FLAMEGOAT (mm 323, cr 1/4), consumed by disease and madness/fire</td>
+                </tr>
+                <tr>
+                    <td class="key">5</td>
+                    <td class="value">1 x Ghoul (mm 148, cr 1), trying to lure the party into an ambush</td>
+                </tr>
+                <tr>
+                    <td class="key">6</td>
+                    <td class="value">1 x Ghast (mm 148, cr 2), Waiting on adventurers to feast on.</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="section"><a id="1" name="1">Room #1</a><br><a href="#map_img">Back to top</a></td>
+        <td>
+            <table class="section">
+                <tr>
+                    <td class="key">Room Features</td>
+                    <td class="value">Ein kreisrunder Raum. Ringsum sind Bilder von Zwergen aufgehängt. In der Mitte steht ein Wyvern-Skelett, das ein gutes Viertel des Raums in Anspruch nimmt. Hinter dem Skelett steht eine alte, kaputte, leere Truhe. </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="section"><a id="2" name="2">Room #2</a><br><a href="#map_img">Back to top</a></td>
+        <td>
+			<table class="section">
+                <tr>
+                    <td class="key">Room Features</td>
+                    <td class="value">Ein Brunnen ziert den Raum. Neben dem Brunnen liegt ein Skelett. Wenn die Gruppe den Brunnen inspiziert, wird sie von einem Water Weird angegriffen. Im Westen des Raumes sind zwei Holztüren.</td>
+                </tr>
+                <tr>
+                    <td class="key">Monster</td>
+                    <td class="value">1 x Water Weird (mm 299, cr 3); 700 xp</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="section"><a id="3" name="3">Room #3</a><br><a href="#map_img">Back to top</a></td>
+        <td>
+            <table class="section">
+                <tr>
+                    <td class="key">Room Features</td>
+                    <td class="value">Der Raum, der anscheinend der Privatwache des ursprünglichen Bewohners als Schlaf- und Gemeinschaftsraum gedient hat. Mittig an der West-Wand befindet sich ein Stein-Podium. Darauf steht ein Tablett, auf dem sich Steinbecher befinden. Zwei Skelette liegen neben dem Podium und im Norden des Raumes steht ein kleiner Ofen, der mit Holzkohle befüllt ist, aber nicht brennt.</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="section"><a id="4" name="4">Room #4</a><br><a href="#map_img">Back to top</a></td>
+        <td>
+            <table class="section">
+                <tr>
+                    <td class="key">Room Features</td>
+                    <td class="value">In diesem Raum befindet sich ein Bett, eine Sitzbank, die aus einem Stein gemeißelt wurde, von einer Ecke überblickt die Statue eines Zwergen den Raum. Der Boden ist mit einem schäbigen Teppich überdeckt und im Ofen brennt ein Feuer.</td>
+                </tr>
+                <tr>
+                    <td class="key">Hidden Elements</td>
+                    <td class="value">Hidden (DC 10 to find): Ein Tagebuch, leicht angesengt, beschreibt wie der Villain einen der Warforged überreden konnte, einen Warforged für ihn zu bauen. In einem späteren Eintrag beschwert er sich, dass der Warforged zu lange braucht, er braucht das Alpha-Modell sofort, weil er die graue Gilde übernehmen will.</p></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="section"><a id="5" name="5">Room #5</a><br><a href="#map_img">Back to top</a></td>
+        <td>
+            <table class="section">
+                <tr>
+                    <td class="key">Room Features</td>
+                    <td class="value">Eine Folterkammer, diverse Utensilien wie Peitschen, Messer, Bohrer, etc. Der Boden weist an vielen Stellen dunkle Flecken auf.</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="section"><a id="6" name="6">Room #6</a><br><a href="#map_img">Back to top</a></td>
+        <td>
+            <table class="section">
+                <tr>
+                    <td class="key">Room Features</td>
+                    <td class="value">Hier befindet sich Todurim. 13 Flaschen mit verschieden-färbigen Substanzen sind ordentlich auf einem Tisch aufgereiht. Eine Destillier-Vorrichtung, ein Rührstab und zahlreiche leere Bauchflaschen sind auch zu finden. Auf einem anderen Tisch steckt in einer Haltevorrichtung ein sich bewegender, metallischer Arm. Außerdem können die PCs auch ein angesengtes Stofftier finden.</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="section"><a id="7" name="7">Room #7</a><br><a href="#map_img">Back to top</a></td>
+        <td>
+            <table class="section">
+                <tr>
+                    <td class="key">Room Features</td>
+                    <td class="value">In der Mitte des Raumes steht ein steinerner Obelisk. Wenn ihn jemand berührt, wird er vom Spell "Confusion" erwischt.</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="section"><a id="8" name="8">Room #8</a><br><a href="#map_img">Back to top</a></td>
+        <td>
+            <table class="section">
+                <tr>
+                    <td class="key">Room Features</td>
+                    <td class="value">Hinter einer Eisentür befindet sich ein leerer Raum. Löst die Party die Falle aus, wird die Tür verschlossen und versperrt und Wasser beginnt in den Raum einzudringen.</td>
+                </tr>
+                <tr>
+                    <td class="key">Traps</td>
+                    <td class="value">DC to find: 15 (hard), DC to break the door: 20 (very hard), DC to open the lock: 20 (very hard), Dispel Magic can used to open the door without check.</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
