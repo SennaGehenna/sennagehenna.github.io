@@ -29,8 +29,8 @@ body{
 </style>
 <script>
     var app = angular.module('myApp', []);
-    app.controller('TodoCtrl', function($scope, $http) {
-    $http.get('js/pages.json')
+    app.controller('myCtrl', function($scope, $http) {
+    $http.get('/js/pages.json')
        .then(function(res){
           $scope.pages = res.data;                
         });
