@@ -30,6 +30,7 @@ body{
 </style>
 <script>
     var app = angular.module('myApp', []);
+    angular.module('myApp', ['ngRoute']);
     var scope;
     
     app.controller('myCtrl', function($scope, $http) {
