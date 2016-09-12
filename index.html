@@ -29,12 +29,13 @@ body{
 </style>
 <script>
     var app = angular.module('myApp', []);
-    window.MY_SCOPE = $scope;
+    
     app.controller('myCtrl', function($scope, $http) {
     $http.get('/js/pages.json')
        .then(function(res){
           $scope.pages = res.data;                
         });
+        window.MY_SCOPE = $scope;
 });
 </script>
     
