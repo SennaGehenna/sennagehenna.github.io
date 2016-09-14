@@ -1,8 +1,11 @@
-html,
-            body {
-                height: 100%;
-            }
-            
-            body {
-                background-color: #A9E3FF;
-            }
+html,body {
+    height: 100%;
+}
+
+body {
+    background-color: #A9E3FF;
+}
+
+.container.main {
+    background-color: #fff;
+}
