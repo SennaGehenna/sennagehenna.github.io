@@ -8,4 +8,5 @@ body {
 
 .container.main {
     background-color: #fff;
+    height: 100%;
 }
