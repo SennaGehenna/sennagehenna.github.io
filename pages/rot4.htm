@@ -14,7 +14,12 @@ function rot4(input){
     }
     return result
 }
-	
+
+function convert(){
+  var input = document.getElementById("inputText").value
+  var output=  rot4(input)
+  document.getElementById("outputText").value = output
+}
 	
 </script>
 </head>
@@ -23,7 +28,7 @@ function rot4(input){
 
 <input id="inputText" type="text"/>
 
-<input id="convertButton" type="submit" text="convert"/>
+<input id="convertButton" type="submit" onclick="convert();" text="convert"/>
 	
 <input id="outputText" type="text" disabled/>
 
