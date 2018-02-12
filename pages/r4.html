@@ -1,0 +1,28 @@
+<html>
+
+<head>
+
+
+<script>
+function rot4(input){
+	var result = ""
+    for(var i = 0; i < input.length; ++i){
+		if(input.charAt(i) != " ")
+			result += String.fromCharCode(4+input.charCodeAt(i))
+		else
+			result += " "
+    }
+    return result
+}
+</script>
+</head>
+
+<body>
+
+<input type="text"/>
+
+<input type="submit"/>
+
+</body>
+
+</html>
