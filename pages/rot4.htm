@@ -18,8 +18,14 @@
 				document.getElementById("outputText").value = output
 				copyToClipboard()
 				document.getElementById("inputText").focus()
-				document.getElementById("inputText").select()
+        document.getElementById("inputText").select()
+        setTimeout(hide, 1500);
 			}
+      
+      function hide(){
+      
+				document.getElementById("copied").style.visibility = "hidden";
+      }
 
 			function copyToClipboard() {
 				/* Get the text field */
@@ -39,8 +45,8 @@
 		<input id="inputText" type="text" autofocus style="width:400px" />
 		<br/>
 		<input id="convertButton" type="submit" onclick="return convert();" text="convert"/>
-		<br/>
-		<span id="copied" style="visibility: hidden;">copied to clipboard</span>
+    <br/>
+    <span id="copied" style="visibility: hidden;">copied to clipboard</span>
 		<input id="outputText" type="text" style="width:400px;visibility: hidden;"/>
 
 	</body>
