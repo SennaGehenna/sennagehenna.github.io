@@ -15,7 +15,7 @@
 			function convert() {
 				var input = document.getElementById("inputText").value
 				var output = rot4(input)
-				document.getElementById("outputText").value = output
+				document.getElementById("inputText").value = output
 				copyToClipboard()
 				document.getElementById("inputText").focus()
         document.getElementById("inputText").select()
@@ -29,7 +29,7 @@
 
 			function copyToClipboard() {
 				/* Get the text field */
-				var copyText = document.getElementById("outputText");
+				var copyText = document.getElementById("inputText");
 				/* Select the text field */
 				copyText.select();
 				/* Copy the text inside the text field */
