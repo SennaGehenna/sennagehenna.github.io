@@ -24,7 +24,6 @@
 						var p = document.createElement("p")
 						p.textContent = traits[Math.round(Math.random() * traits.length)]
 						result.appendChild(p)
-						result.appendChild(document.createElement("br"))
 					}
 				}
 			</script>
@@ -33,5 +32,6 @@
         <button onClick="pickTraits()">Pick traits</button>
         <br/>
         <div id="result"/>
+	<span id="copyText"/>
     </body>
 </html>
