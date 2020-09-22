@@ -12,12 +12,12 @@
                 var result = document.getElementById("result")
 
                 for(var i = res.childNodes.length-1; i >=0; --i){
-	                res.removeChild(res.childNodes[i])
+	                result.removeChild(res.childNodes[i])
                 }
 
                 for(var i = 0; i < 3; ++i){
-                    res.appendChild(document.createTextNode(traits[Math.round(Math.random() * traits.length)]))
-                    res.appendChild(document.createElement("br"))
+                    result.appendChild(document.createTextNode(traits[Math.round(Math.random() * traits.length)]))
+                    result.appendChild(document.createElement("br"))
                 }
             }
             
