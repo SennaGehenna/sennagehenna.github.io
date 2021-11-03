@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+	<script>
+	
+		var timezoneOffset = new Date().getTimezoneOffset()* 60 * 1000;
+		function convert(){
+			var timestamp = (document.getElementById("date").valueAsNumber + document.getElementById("time").valueAsNumber + timezoneOffset) / 1000;
+			
+			document.getElementById("output").value = "<t:"+timestamp+">"
+		}
+		
+		
+		function copyToClipboard() {
+		  /* Get the text field */
+		  var copyText = document.getElementById("output");
+
+		  /* Select the text field */
+		  copyText.select();
+		  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+		   /* Copy the text inside the text field */
+		  navigator.clipboard.writeText(copyText.value);
+		}
+		
+		function clear(){
+		document.getElementById("date").value=""
+		document.getElementById("time").value=""
+		document.getElementById("output").value=""
+		}
+		
+	</script>
+	</head>
+	<body onload="clear()">
+		<input type="date" id="date">
+		<input type="time" id="time">
+		<br/>
+		<input type="button" value="Convert" onclick="convert()"/>
+		<br/>
+		<input type="text" id="output"> <input type="button" value="Copy to Clipboard" onclick="copyToClipboard()"/>
+	</body>
+</html>
