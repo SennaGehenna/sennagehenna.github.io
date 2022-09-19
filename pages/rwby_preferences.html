@@ -13,11 +13,11 @@
 		  var copyText = document.getElementById("output");
 
 		  /* Select the text field */
-		  copyText.select();
-		  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+		  //copyText.select();
+		  //copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
 		   /* Copy the text inside the text field */
-		  navigator.clipboard.writeText(copyText.value);
+		  navigator.clipboard.writeText(copyText.textContent);
 		}
       
     </script>
@@ -27,7 +27,7 @@
 	  <button onClick="copyToClipboard()">Copy list to clipboard</button>
 	  <button onClick="goToRwby()">Go To Preference Revealer</button>
 	  
-    <input type="text" id="output" value="Cinder Fall
+    <div id="output">Cinder Fall
 Willow Schnee
 Emerald Sustrai
 Penny Polendina
@@ -116,6 +116,7 @@ Whitley Schnee
 Cardin Winchester
 Henry Marigold
 Tyrian Callows
-Jacques Schnee">
+Jacques Schnee
+</div>
   </body>
 </html>
