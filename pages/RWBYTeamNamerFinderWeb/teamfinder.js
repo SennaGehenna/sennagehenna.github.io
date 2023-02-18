@@ -28,7 +28,7 @@ fetch("https://api.color.pizza/v1/").then(response => {
 
     
 
-    if (n.lastName != null)
+    if (n.lastName != null && n.lastName != "")
         endList.push(getAllTeamCombos3("" + n.lastName[0], f, m, r))
     
     if (firstNameRequiredLeader) 
@@ -85,8 +85,10 @@ function getAllTeamCombos2(
     endList.push(getAllTeamCombos1(partial + a.firstName[0], b))
     endList.push(getAllTeamCombos1(partial + b.firstName[0], a))
 
-    if (a.lastName != null && a.lastName != "") endList.push(getAllTeamCombos1(partial + a.lastName[0], b))
-    if (b.lastName != null && b.lastName != "") endList.push(getAllTeamCombos1(partial + b.lastName[0], a))
+    if (a.lastName != null && a.lastName != "") 
+        endList.push(getAllTeamCombos1(partial + a.lastName[0], b))
+    if (b.lastName != null && b.lastName != "") 
+        endList.push(getAllTeamCombos1(partial + b.lastName[0], a))
 
     return endList
 }
@@ -99,8 +101,9 @@ function getAllTeamCombos1(
     var endList = []
 
     endList.push(partial + a.firstName[0])
-    if (a.lastName != null && (partial + a.firstName[0]) != (partial + a.lastName[0]))
-        endList.push(partial + a.lastName[0])
+    if (a.lastName != null && a.lastName != "")
+        if((partial + a.firstName[0]) != (partial + a.lastName[0]))
+            endList.push(partial + a.lastName[0])
 
     return endList
 }
