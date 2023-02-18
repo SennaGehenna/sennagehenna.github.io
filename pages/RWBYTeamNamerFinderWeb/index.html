@@ -1,0 +1,71 @@
+
+
+    <!doctype html>
+    <html ng-app="teamNames">
+      <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script src="teamfinder.js"> </script>
+        <script src="angular_code.js"> </script>
+        <style>
+          .colorSwatch{
+            width: 200px;
+            height:20px;
+          }
+        </style>
+      </head>
+      <body>
+
+        <div ng-controller="TeamNamesController as teams">
+          <h2>RWBY Team Name Finder</h2>
+          <a href="https://github.com/meodai/color-names">Source of Color Names</a>
+          <br/>
+          <br/>
+        
+          <span>Team Member 1: </span>
+          <input type="text" placeholder="firstname" ng-model="firstName1"/>
+          <input type="text" placeholder="lastname" ng-model="lastName1"/> 
+          <input type="checkbox" ng-checked="enforceLeader"/> <span>force as leader</span>
+          <br/> 
+          <span>Team Member 2: </span>
+          <input type="text" placeholder="firstname" ng-model="firstName2"/>
+          <input type="text" placeholder="lastname" ng-model="lastName2"/> 
+          <br/>
+          <span>Team Member 3: </span>
+          <input type="text" placeholder="firstname" ng-model="firstName3"/>
+          <input type="text" placeholder="lastname" ng-model="lastName3"/> 
+          <br/>
+          <span>Team Member 4: </span>
+          <input type="text" placeholder="firstname" ng-model="firstName4"/>
+          <input type="text" placeholder="lastname" ng-model="lastName4"/> 
+          <br/>
+
+
+          <button ng-click="getTeamNames()"> get team names</button>
+
+        
+          <hr/>
+
+        <span> found teams: {{teams.length}}</span>
+
+          <table >
+
+            <tr ng-repeat="team in teams">
+              
+              
+                <td><div class="colorSwatch" style="background-color: {{ team.hex }};"></div></td>
+
+                <td><span>{{ team.colorName }}</span></td>
+                <td><span>{{ team.teamAcronym }}</span></td>
+              
+            </li>
+
+          </ul>
+
+
+        </div>
+
+
+        
+      </body>
+    </html>
+
