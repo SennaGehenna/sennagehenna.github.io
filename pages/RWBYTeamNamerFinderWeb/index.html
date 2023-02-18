@@ -12,6 +12,9 @@
             width: 200px;
             height:20px;
           }
+          @media screen and (min-width: 600px)  {
+            .mobile-break { display: none; }
+          }
         </style>
       </head>
       <body>
@@ -23,19 +26,24 @@
           <br/>
         
           <span>Team Member 1: </span>
+          <br class="mobile-break"/>
           <input type="text" placeholder="firstname" ng-model="firstName1"/>
           <input type="text" placeholder="lastname" ng-model="lastName1"/> 
+          <br class="mobile-break"/>
           <input type="checkbox" ng-checked="enforceLeader"/> <span>force as leader</span>
           <br/> 
           <span>Team Member 2: </span>
+          <br class="mobile-break"/>
           <input type="text" placeholder="firstname" ng-model="firstName2"/>
           <input type="text" placeholder="lastname" ng-model="lastName2"/> 
           <br/>
           <span>Team Member 3: </span>
+          <br class="mobile-break"/>
           <input type="text" placeholder="firstname" ng-model="firstName3"/>
           <input type="text" placeholder="lastname" ng-model="lastName3"/> 
           <br/>
           <span>Team Member 4: </span>
+          <br class="mobile-break"/>
           <input type="text" placeholder="firstname" ng-model="firstName4"/>
           <input type="text" placeholder="lastname" ng-model="lastName4"/> 
           <br/>
