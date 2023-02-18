@@ -1,17 +1,17 @@
 angular.module("teamNames",[])
 .controller("TeamNamesController", function TeamNamesController($scope){
 
-    $scope.firstName1 = "Roxanne"
-    $scope.lastName1 = "Adhara"
-    $scope.firstName2 = "Zora"
-    $scope.lastName2 = "Teke"
-    $scope.lastName3 = "Centurion"
-    $scope.firstName3 = "Centurion"
-    $scope.lastName4 = "Tereza"
-    $scope.firstName4 = "Veil"
+    $scope.firstName1 = ""
+    $scope.lastName1 = ""
+    $scope.firstName2 = ""
+    $scope.lastName2 = ""
+    $scope.lastName3 = ""
+    $scope.firstName3 = ""
+    $scope.lastName4 = ""
+    $scope.firstName4 = ""
     
 
-    $scope.enforceLeader = true
+    $scope.enforceLeader = false
     
     $scope.teams = []
    
