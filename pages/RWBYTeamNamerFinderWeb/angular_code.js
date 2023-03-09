@@ -12,6 +12,7 @@ angular.module("teamNames",[])
     
 
     $scope.enforceLeader = false
+    $scope.filterMultiNameColors = false
     
     $scope.teams = []
    
@@ -25,7 +26,7 @@ angular.module("teamNames",[])
       var n4= new Name($scope.firstName4.trim(), $scope.lastName4.trim())
       
 
-      var foundTeams = getResults(n1,n2,n3,n4,$scope.enforceLeader,colors)
+      var foundTeams = getResults(n1,n2,n3,n4,$scope.enforceLeader,$scope.filterMultiNameColors, colors)
 
       $scope.teams = foundTeams
 
