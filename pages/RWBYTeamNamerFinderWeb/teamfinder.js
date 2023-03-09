@@ -177,7 +177,7 @@ class FoundColor {
     }
 }
 
-function getResults(name1, name2, name3, name4, enforceLeader, colors){
+function getResults(name1, name2, name3, name4, enforceLeader, filterMultiNameColors, colors){
     
     var unflattedCombos = getAllTeamCombos4(name1, name2, name3, name4, enforceLeader)
 
@@ -185,8 +185,16 @@ function getResults(name1, name2, name3, name4, enforceLeader, colors){
         teamStringToRegex(it)
     )
 
+    var finalColors;
+    if(filterMultiNameColors){
+        whiteSpaceRegex = new RegExp("^\\w+\\S\\w+$")
+        finalColors = colors.filter ( it => it.name.match(whiteSpaceRegex));
+    } else {
+        finalColors = colors;
+    }
+    
     var resultWithDupes = combos.flatMap ( reg =>
-        colors.filter ( col =>
+        finalColors.filter ( col =>
             col.name.match(reg.reg) != null
         ).map (it => 
             new FoundColor(it.name, it.hex, reg.team)
