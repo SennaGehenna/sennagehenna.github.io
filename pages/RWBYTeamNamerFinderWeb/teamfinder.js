@@ -1,5 +1,7 @@
 var colors;
 
+//can you please just deploy the website github
+
 fetch("https://api.color.pizza/v1/").then(response => {
     // indicates whether the response is successful (status code 200-299) or not
     if (!response.ok) {
