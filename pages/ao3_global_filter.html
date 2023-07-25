@@ -46,7 +46,7 @@ page</a> for this little project</p>
     <p>This is likely going to be less interesting for most, but I’m adding it just for the sake of transparency.</p>
     <p>The implementation is plugin-based, which means it’s just a side-thingy you add to your browser. Filters are (currently) stored to the browser storage (in Firefox this <em>should</em> be browser.storage, I still need to investigate and test this). When navigating within AO3, specific requests are intercepted, namely requests whose location matches either of the following:</p>
     <ul>
-        <li>“https://archiveofourown.org/tags/<em>/works</em>”</li>
+        <li>“https://archiveofourown.org/tags/*/works*”</li>
         <li>“https://archiveofourown.org/works”</li>
         <li>“https://archiveofourown.org/works?*”</li>
         <li>“https://archiveofourown.org/users/*bookmarks”</li>
