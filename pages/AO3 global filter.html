@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <title>AO3 global filter</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+
+    <style>
+      img {
+        width: 80%;
+      }
+    </style>
+</head>
+
+<body>
+    <header id="title-block-header">
+        <h1 class="title">AO3 global filter</h1>
+    </header>
+    <h1 id="intro">intro</h1>
+    <p>Initially, the idea was to create an extension that would recreate the filter-layout. The idea was to recreate the filter used in AO3. At first, I thought that an extension similar to uBlock or any other extension that provides you with an interface would be the way to go, but after some thinking, I decided that altering the AO3 site and hooking directly into it would be smarter and more intuitive.</p>
+    <p>The plugin would be available for Firefox Desktop and Chrome Desktop as well as Firefox Mobile <strong>Nightly</strong>. Other browsers would be supported based on how much effort it would be to port the plugin, as well as availability of certain features.</p>
+    <p>This page serves as a presentation and explanation on how to use the thing, hoping it makes sense. It is also supposed to be used to gather feedback, which I’d love to get on tumblr, if at all possible.</p>
+    <p>My handle is <a href="https://www.tumblr.com/annafall">annafall</a> and my DMs are open :) Alternatively you can open up an issue on <a href="https://github.com/SennaGehenna/ao3_auto_filter/issues">my github
+page</a> for this little project</p>
+    <h1 id="the-mock-up">the mock-up</h1>
+    <p>We start without a filter, the default view. This is the original AO3 site, I’m using the RWBY fandom because of reasons that should be obvious once you look at my tumblr lol</p>
+    <p>The “Sort and Filter” button is replaced with a combo box, “No filter” is pre-selected, and a new button “Apply this Filter” is added as well.</p>
+    <p><a href="1.png"><img src="1.png"/></a></p>
+    <p>Clicking on the combo box reveals a new option “Add new filter profile”
+    </p>
+    <p><a href="2.png"><img src="2.png"/></a></p>
+    <p>Selecting “Add new filter profile” opens up a prompt, asking the user to input a name for their new filter profile. The input-field contains the text “Default”. The user can change this text to whatever they wish. For the sake of this mock-up presentation I changed it to “RWBY - public reading”.
+    </p>
+    <p><a href="3.png"><img src="3.png"/></a></p>
+    <p>After click on the OK button, a new option is added to the combo box, matching the user input from the prompt.</p>
+    <p><a href="4.png"><img src="4.png"/></a></p>
+    <p>Additionally, the button that said “Apply this Filter” now says “Save and Apply this Filter” instead, signifying that we’re editing the currently selected filter.</p>
+    <p><a href="5.png"><img src="5.png"/></a></p>
+    <p>You are now free to add your filters! It works just like the regular filter. You edit it however you please and then click on “Save and Apply this Filter” and it’ll save the filter to your browser storage (this is separate from your internal storage, so no worries that you’ll end up with garbage data on your harddrive or internal memory (if you’re using this on a phone).</p>
+    <p><a href="6.png"><img src="6.png"/></a></p>
+    <p>As you navigate AO3, this filter will be automatically applied. The kicker is, you can create multiple filters and switch between them on the fly and the plugin will remember which filter is the active one!</p>
+    <h1 id="implementation">implementation</h1>
+    <p>This is likely going to be less interesting for most, but I’m adding it just for the sake of transparency.</p>
+    <p>The implementation is plugin-based, which means it’s just a side-thingy you add to your browser. Filters are (currently) stored to the browser storage (in Firefox this <em>should</em> be browser.storage, I still need to investigate and test this). When navigating within AO3, specific requests are intercepted, namely requests whose location matches either of the following:</p>
+    <ul>
+        <li>“https://archiveofourown.org/tags/<em>/works</em>”</li>
+        <li>“https://archiveofourown.org/works”</li>
+        <li>“https://archiveofourown.org/works?*”</li>
+        <li>“https://archiveofourown.org/users/*bookmarks”</li>
+        <li>“https://archiveofourown.org/users/*works”</li>
+    </ul>
+    <p>When such a request is intercepted, the script evaluates whether the URL parameters accurately reflects our current filter. If the filter is present in its entirety, we proceed to the URL. If the filter is incomplete, we create a new URL based on the old, apply the URL parameters and redirect to this new URL.</p>
+    <h1 id="leading-questions">leading questions</h1>
+    <h2 id="section">#1</h2>
+    <p>This concept isn’t airtight. One of the questions that popped up for me was “what about people who want to have a default filter that filters specific stuff, but then add more stuff without saving that to their default filter?”</p>
+    <p>And that is indeed a tricky question, because it requires a bit of finagling that I still need to lose braincells over.</p>
+    <p><strong>It’ll be in the final product, don’t worry.</strong> This is just a mock-up.</p>
+    <h2 id="section-1">#2</h2>
+    <p>Filter profiles across devices? Would be cool, actually! Imagine having a log-in button, where you can use something like your google account, so the filter profiles will be saved to the cloud and when you log in on another device, the filter profiles are downloaded and readily available.
+    </p>
+    <p>Still looking for options, firebase seems to be promising, partially because I’ve also worked with firebase in the past (although not in this dimension)
+    </p>
+    <h1 id="feedback">feedback?</h1>
+    <p>Desired and appreciated!</p>
+    <p>Preferably on my tumblr, which goes by the handle <a href="https://www.tumblr.com/annafall">annafall</a> (because it’s much more likely that I’ll see DMs on there)</p>
+    <p>Alternatively you can open up an issue on <a href="https://github.com/SennaGehenna/ao3_auto_filter/issues">my github
+page</a> for this little project :)</p>
+</body>
+
+</html>
