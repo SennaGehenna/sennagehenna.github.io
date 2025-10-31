@@ -40,6 +40,6 @@ function calculate(){
   
   gas_paid.textContent = "€"+per_week;
 
-  gas_paid_month.textContent = "€" + (per_week*4);
+  gas_paid_month.textContent = "€" + (per_week*4).toFixed(2);
 
 }
