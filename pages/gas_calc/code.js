@@ -21,6 +21,7 @@ function calculate(){
   gas_price = document.getElementById("gas_price")
   gas_used = document.getElementById("gas_used")
   gas_paid = document.getElementById("gas_paid")
+  gas_paid_month = document.getElementById("gas_paid_month")
 
   if(km_one_way.value == undefined || gas_price.value == undefined || gas_used.value == undefined)
     return;
@@ -35,6 +36,10 @@ function calculate(){
 
   if(isNaN(km_one_way_value) || isNaN(gas_price_value) || isNaN(gas_used_value))
     return;
+  per_week = (km_one_way_value * 2 * 5 * gas_price_value * gas_used_value / 100).toFixed(2);
+  
+  gas_paid.textContent = "€"+per_week;
 
-  gas_paid.textContent = "€"+(km_one_way_value * 2 * 5 * gas_price_value * gas_used_value / 100).toFixed(2);
+  gas_paid_month.textContent = "€" + (per_week*4);
+
 }
